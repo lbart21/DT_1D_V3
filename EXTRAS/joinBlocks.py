@@ -26,8 +26,8 @@ class jointBlock():
 
         ### When joining blocks, cell locations need to be updated. Only want to do this when joining blocks, not when adding interface
         # Will do this by always updating the east block, so the positions are always positive.
-        # Restricting it to always updating mesh2 locations runs into issues when joining to west face of mesh1 because 
-        # locations become negative and the calculation of these locations is inefficient 
+        # Restricting it to always updating mesh2 locations runs into issues when joining to west face of mesh1 because
+        # locations become negative and the calculation of these locations is inefficient
         # Process is find location of joining cell of west block. Add half of that cell's width to find location of interface.
         # For every cell in east block, add this interface location to the pos_x values
         if not AddingGhostCellsBool:
@@ -45,7 +45,7 @@ class jointBlock():
                 mesh1JoiningBoundaryCellLocation = mesh1JoiningBoundaryCell.GEO["pos_x"]
                 mesh1JoiningBoundaryCellWidth = mesh1JoiningBoundaryCell.GEO["dx"]
                 for mesh2Cell in meshObject2.cellArray:
-                    mesh2Cell.GEO["pos_x"] += mesh1JoiningBoundaryCellLocation + 0.5 * mesh1JoiningBoundaryCellWidth      
+                    mesh2Cell.GEO["pos_x"] += mesh1JoiningBoundaryCellLocation + 0.5 * mesh1JoiningBoundaryCellWidth
             if newComponentLabel != None:
                 self.componentLabels = [newComponentLabel]
             else:    
